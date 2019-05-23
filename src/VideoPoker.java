@@ -45,7 +45,6 @@ public class VideoPoker {
             System.out.println("Aposta: " + aposta);
             System.out.println("Saldo:" + saldo);
             
-            Checkbox checkbox = new Checkbox();
 
             saldo.setAposta(aposta);
             if(aposta == 0 ){
@@ -55,7 +54,8 @@ public class VideoPoker {
             }else{
                 baralho.sortear();
                 System.out.println(baralho.toString());
-                
+                Checkbox checkbox = new Checkbox(baralho);
+
                 System.out.println("Insira as cartas que quer descartar separadas por espaço.");
                 String segundaVez = EntradaTeclado.leString();
                 try{
@@ -73,8 +73,10 @@ public class VideoPoker {
                 } catch (NumberFormatException e) {
                     System.out.println(baralho.toString());
                 }
-                
-                
+
+
+
+
                 numeroCartas = baralho.getNumerosCartas();
                 naipesCartas = baralho.getNaipesCartas();
                 System.out.print("\n");

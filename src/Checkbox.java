@@ -3,16 +3,15 @@ import java.awt.*;
 
 public class Checkbox extends JFrame {
     
-    Baralho cartas = new Baralho();
 
-    public Checkbox() {
+    public Checkbox(Baralho cartas) {
         super("Quais cartas deseja escolher?");
-        this.setSize(600, 400);
+        this.setSize(600, 450);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setLayout(new GridLayout(3, 1));
 
-        this.add(new JLabel(cartas.toString()));
+        this.add(new JLabel("<html>" + "<pre>" + cartas.toString() + "</pre>" + "</html>"));
 
         JPanel checkboxes = new JPanel();
         checkboxes.setLayout(new FlowLayout());
