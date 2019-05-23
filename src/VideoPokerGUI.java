@@ -8,7 +8,7 @@ public class VideoPokerGUI extends JFrame {
 
     public VideoPokerGUI(Creditos saldo) {
         super("Video Poker");
-        this.setSize(600, 450);
+        this.setSize(600, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         JPanel jPanel = (JPanel) this.getContentPane();

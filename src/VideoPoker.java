@@ -1,6 +1,3 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 /**
@@ -56,23 +53,29 @@ public class VideoPoker {
                 System.out.println(baralho.toString());
                 Checkbox checkbox = new Checkbox(baralho);
 
+
                 System.out.println("Insira as cartas que quer descartar separadas por espaço.");
-                String segundaVez = EntradaTeclado.leString();
+                String segundaVez = checkbox.getStringDasCheckbox();
                 try{
                     baralho.sortear(segundaVez);
                     System.out.println(baralho.toString());
+                    
                 } catch (NumberFormatException e) {
                     System.out.println(baralho.toString());
                 }
                 
+                
                 System.out.println("Insira as cartas que quer descartar separadas por espaço.");
-                String terceiraVez = EntradaTeclado.leString();
+                Checkbox checkbox2 = new Checkbox(baralho);
+                String terceiraVez = checkbox2.getStringDasCheckbox();
                 try {
                     baralho.sortear(terceiraVez);
                     System.out.println(baralho.toString());
+                    
                 } catch (NumberFormatException e) {
                     System.out.println(baralho.toString());
                 }
+                
 
 
 
@@ -81,11 +84,14 @@ public class VideoPoker {
                 naipesCartas = baralho.getNaipesCartas();
                 System.out.print("\n");
                 System.out.println(saldo.pontuacao(numeroCartas,naipesCartas));
+                
+                ResultadoGUI resultadoGUI = new ResultadoGUI(baralho, saldo, numeroCartas, naipesCartas);
+                
                 baralho.resetaCartasJáTiradas();
             }
             
             /*Limpa os panels*/
-            
+            frame.dispose();
             frame.removeAll();
         }
                 
