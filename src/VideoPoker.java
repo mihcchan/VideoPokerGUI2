@@ -4,7 +4,7 @@ import java.io.IOException;
  * Classe VideoPoker que contém apenas o método main para executar o jogo.
  *
  * @author Michelle Schmitt Gmurczyk - 9424315
- * @author Ana Clara Amorim Andrade - 10691992+
+ * @author Ana Clara Amorim Andrade - 10691992
  *
  */
 public class VideoPoker {
