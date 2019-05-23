@@ -13,9 +13,9 @@ public class VideoPokerGUI extends JFrame {
         this.setVisible(true);
         JPanel jPanel = (JPanel) this.getContentPane();
         jPanel.setLayout(new GridLayout(5,1));
-        jPanel.add(new JLabel("Feche a janela para sair.\n"));
-        jPanel.add(new JLabel("Saldo atual: " + saldo.getSaldo()));
-        jPanel.add(new JLabel("Digite o valor da aposta:"));
+        jPanel.add(new JLabel("Feche a janela para sair.\n", SwingConstants.CENTER));
+        jPanel.add(new JLabel("Saldo atual: " + saldo.getSaldo(), SwingConstants.CENTER));
+        jPanel.add(new JLabel("Digite o valor da aposta:", SwingConstants.CENTER));
 
         this.nome = new JTextField();
         JButton buttonOK = new JButton("CONFIRMA");

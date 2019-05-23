@@ -46,8 +46,11 @@ public class VideoPoker {
             saldo.setAposta(aposta);
             if(aposta == 0 ){
                 System.out.println("Aposta inválida");
+                ApostaInvalidaGUI apostaInvalidaGUI = new ApostaInvalidaGUI();
+                
             }else if(aposta > saldoAnterior){
                  System.out.println("Valor da aposta maior que o valor do saldo");
+                 ApostaMaiorQueSaldoGUI apostaMaiorQueSaldoGUI = new ApostaMaiorQueSaldoGUI(saldo);
             }else{
                 baralho.sortear();
                 System.out.println(baralho.toString());
