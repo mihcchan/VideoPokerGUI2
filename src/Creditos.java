@@ -28,7 +28,7 @@ public class Creditos {
 	 * @param n Valor de créditos que serão apostados.
 	 */
 	public void setAposta(int n){
-	    if(n<=this.saldo){
+	    if(n<=this.saldo &&  n != -1){
 	        this.aposta = n;
 		    this.saldo = this.saldo - this.aposta;
 	    }

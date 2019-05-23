@@ -33,6 +33,7 @@ public class Baralho {
         for (int i = 0; i < 5; i++) {
             this.cartasDaMao[i].sortearNovaCarta();
             while (this.cartasJaTiradas.contains(this.cartasDaMao[i])) {
+                Thread.sleep(100);
                 this.cartasDaMao[i].sortearNovaCarta();
             }
             this.cartasJaTiradas.add(new Carta(this.cartasDaMao[i].getNumero(), this.cartasDaMao[i].getNaipe()));
@@ -51,6 +52,7 @@ public class Baralho {
             if (quais[i] == true) {
                 this.cartasDaMao[i].sortearNovaCarta();
                 while (this.cartasJaTiradas.contains(this.cartasDaMao[i])) {
+                    Thread.sleep(100);
                     this.cartasDaMao[i].sortearNovaCarta();
                 }
                 this.cartasJaTiradas.add(new Carta(this.cartasDaMao[i].getNumero(), this.cartasDaMao[i].getNaipe()));

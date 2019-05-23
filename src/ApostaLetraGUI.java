@@ -3,22 +3,23 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /**
- * Classe que cria uma janela dizendo para não apostar 0.
+ * Classe que cria uma janela dizendo para apostar um número.
  */
-public class ApostaInvalidaGUI extends JFrame {
-    
+public class ApostaLetraGUI extends JFrame {
+
+
     /**
-     * Contrutor da classe ApostaInvalidaGUI que cria uma janela dizendo para não apostar 0 e um botão de OK.
+     * Construtor da classe ApostaLetraGUI que cria uma janela dizendo para apostar um número e um botão de OK.
      * @constructor 
      */
-    public ApostaInvalidaGUI() {
+    public ApostaLetraGUI() {
         super("Erro");
         this.setSize(400, 200);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new GridLayout(3,1));
 
 
-        JLabel aviso = new JLabel("Aposte um número que não seja 0.", SwingConstants.CENTER);
+        JLabel aviso = new JLabel("Por favor digite um número.", SwingConstants.CENTER);
         JLabel aviso1 = new JLabel("Pressione OK para continuar.", SwingConstants.CENTER);
 
         JButton botao = new JButton("OK");
@@ -28,7 +29,7 @@ public class ApostaInvalidaGUI extends JFrame {
 
         botao.setAction(new AbstractAction() {
             public void actionPerformed(ActionEvent ae) {
-                ApostaInvalidaGUI.super.dispose();
+                ApostaLetraGUI.super.dispose();
                 synchronized (botao) {
                     botao.notify();
                 }
@@ -50,6 +51,4 @@ public class ApostaInvalidaGUI extends JFrame {
             }
         }
     }
-    
 }
-

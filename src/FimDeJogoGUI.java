@@ -3,23 +3,24 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /**
- * Classe que cria uma janela dizendo para não apostar 0.
+ * Classe que cria uma janela anunciando o fim do jogo.
  */
-public class ApostaInvalidaGUI extends JFrame {
-    
+public class FimDeJogoGUI extends JFrame {
+
     /**
-     * Contrutor da classe ApostaInvalidaGUI que cria uma janela dizendo para não apostar 0 e um botão de OK.
+     * Construtor da classe FimDeJogoGUI que cria uma janela anunciando o fim do jogo
+     * assim que o saldo chega a 0. O botão de OK encerra o jogo e fecha.
      * @constructor 
      */
-    public ApostaInvalidaGUI() {
-        super("Erro");
+    public FimDeJogoGUI() {
+        super("Fim de jogo");
         this.setSize(400, 200);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new GridLayout(3,1));
 
 
-        JLabel aviso = new JLabel("Aposte um número que não seja 0.", SwingConstants.CENTER);
-        JLabel aviso1 = new JLabel("Pressione OK para continuar.", SwingConstants.CENTER);
+        JLabel aviso = new JLabel("Seu saldo chegou a 0, o jogo acabou.", SwingConstants.CENTER);
+        JLabel aviso1 = new JLabel("Pressione OK para fechar.", SwingConstants.CENTER);
 
         JButton botao = new JButton("OK");
 
@@ -28,7 +29,7 @@ public class ApostaInvalidaGUI extends JFrame {
 
         botao.setAction(new AbstractAction() {
             public void actionPerformed(ActionEvent ae) {
-                ApostaInvalidaGUI.super.dispose();
+                FimDeJogoGUI.super.dispose();
                 synchronized (botao) {
                     botao.notify();
                 }
@@ -50,6 +51,4 @@ public class ApostaInvalidaGUI extends JFrame {
             }
         }
     }
-    
 }
-

@@ -4,22 +4,30 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-public class Checkbox extends JFrame {
+/**
+ * Classe que cria 5 checkbox para selecionar quais cartas deseja trocar.
+ */
+public class CheckboxGUI extends JFrame {
     
     private JCheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5;
     private CheckboxTratador tratador;
 
 
-
-    public Checkbox(Baralho cartas) {
+    /**
+     * Construtor da classe CheckboxGUI que cria 5 checkbox para selecionar quais cartas deseja trocar
+     * juntamente com um botão de confirmar.
+     * @constructor 
+     * @param cartas cartas da rodada atual.
+     */
+    public CheckboxGUI(Baralho cartas) {
         
         super("Cartas sorteadas");
-        this.setSize(600, 400);
+        this.setSize(600, 450);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new GridLayout(6, 1));
-        this.setVisible(true);
         
-        this.add(new JLabel("Escolha quais cartas deseja trocar:", SwingConstants.CENTER));
+        this.add(new JLabel("<html>" + "Escolha quais cartas deseja trocar." + "<br>" +
+                "Para não trocar basta não selecionar nenhuma carta." + "</html>", SwingConstants.CENTER));
         this.add(new JLabel(""));
         this.add(new JLabel("<html>" + "<pre>" + cartas.toString() + "</pre>" + "</html>", SwingConstants.CENTER));
         
@@ -55,7 +63,7 @@ public class Checkbox extends JFrame {
 
         botao.setAction(new AbstractAction() {
             public void actionPerformed(ActionEvent ae) {
-                Checkbox.super.dispose();
+                CheckboxGUI.super.dispose();
                 synchronized (botao) {
                     botao.notify();
                 }
@@ -67,6 +75,9 @@ public class Checkbox extends JFrame {
 
         this.add(botao);
 
+        this.setVisible(true);
+
+
         synchronized(botao) {
             try {
                 botao.wait();
@@ -75,26 +86,32 @@ public class Checkbox extends JFrame {
             }
         }
 
-        System.out.println(checkBox1.isSelected());
-        
-
         
 
     }
-    
-   
-    
+
+
+    /**
+     * Retorna a string formada pelas checkbox
+     * @return string
+     */
     public String getStringDasCheckbox(){
         return tratador.getStringParaSortear();
     }
 
+    /**
+     * Classe que implementa o ItemListener das checkbox
+     */
     private class CheckboxTratador implements ItemListener {
 
 
         private String stringParaSortear;
 
-        
 
+        /**
+         * Override de itemStateChanged para que cada checkbox crie uma string
+         * @param itemEvent
+         */
         @Override
         public void itemStateChanged(ItemEvent itemEvent) {
             this.stringParaSortear = "";
@@ -114,12 +131,21 @@ public class Checkbox extends JFrame {
             if(checkBox5.isSelected()){
                 this.stringParaSortear += "5 ";
             }
-            
-            System.out.println(this.stringParaSortear);
+      
         }
 
+        /**
+         * Retorna a string formada ao selecionar cartas que deseja trocar.
+         * @return string
+         */
         public String getStringParaSortear() {
-            return this.stringParaSortear;
+            if(checkBox1.isSelected() || checkBox2.isSelected() || checkBox3.isSelected() || checkBox4.isSelected() || checkBox5.isSelected()){
+                return this.stringParaSortear;
+
+            } else {
+                String s = " ";
+                return s;
+            }
         }
         
     }
