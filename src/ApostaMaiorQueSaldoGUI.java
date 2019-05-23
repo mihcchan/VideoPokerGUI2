@@ -11,7 +11,7 @@ public class ApostaMaiorQueSaldoGUI extends JFrame {
      * Construtor da classe ApostaMaiorQueSaldoGUI que cria uma janela dizendo que a aposta foi maior que o saldo
      * informando o saldo atual e um botão e OK.
      * @constructor 
-     * @param saldo
+     * @param saldo saldo atual.
      */
     public ApostaMaiorQueSaldoGUI(Creditos saldo) {
 
